@@ -16,7 +16,10 @@ services:
    - ${DATA_DIRECTORY}/var/lib/zabbix/ssh_keys:/var/lib/zabbix/ssh_keys:ro
    - ${DATA_DIRECTORY}/var/lib/zabbix/mibs:/var/lib/zabbix/mibs:ro
    - snmptraps:/var/lib/zabbix/snmptraps:ro
+   - ${SNMPTRAPS_DIRECTORY}/etc/snmp:/etc/snmp:ro
   tmpfs: /tmp
+  links:
+   - zabbix-snmptraps
   ulimits:
    nproc: 65535
    nofile:
